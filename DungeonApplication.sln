@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeon", "Dungeon\Dungeon.csproj", "{D1591071-97B3-4C72-BDD4-EFA343B5A8DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dungeon", "Dungeon\Dungeon.csproj", "{D1591071-97B3-4C72-BDD4-EFA343B5A8DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomGenerator", "RoomGenerator\RoomGenerator.csproj", "{7C67F1E5-D63A-4924-A811-4DA35130B456}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D1591071-97B3-4C72-BDD4-EFA343B5A8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1591071-97B3-4C72-BDD4-EFA343B5A8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1591071-97B3-4C72-BDD4-EFA343B5A8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C67F1E5-D63A-4924-A811-4DA35130B456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C67F1E5-D63A-4924-A811-4DA35130B456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C67F1E5-D63A-4924-A811-4DA35130B456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C67F1E5-D63A-4924-A811-4DA35130B456}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
