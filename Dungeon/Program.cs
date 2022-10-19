@@ -57,6 +57,8 @@ namespace Dungeon
                 Random randRoomNmbr = new Random();
                 int rand = randRoomNmbr.Next(rooms.Length);
                 string randRoom = rooms[rand];
+
+                Console.WriteLine(rooms);
                 #endregion
 
 
@@ -179,5 +181,9 @@ namespace Dungeon
                                   //false (default) -lets you see what user types
             #endregion
         }//end main()
+        private static string GetRoom()
+        {
+            return "";
+        }//end GetRoom()
     }//end class
 }//end namespace

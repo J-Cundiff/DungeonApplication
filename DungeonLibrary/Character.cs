@@ -2,13 +2,14 @@
 {
     public class Character
     {
+        //fields
         private int _life;
         private string _name;
         private int _hitChance;
         private int _block;
         private int _maxLife;
 
-
+        //Properties
         public string Name
         {
             get { return _name; }
@@ -47,7 +48,7 @@
                 }//end else
             }//end set
         }
-
+        //Constructors
         public int ClacBlock()
         {
             return Block;

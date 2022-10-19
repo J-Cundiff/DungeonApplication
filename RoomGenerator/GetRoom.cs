@@ -18,17 +18,15 @@ namespace RoomGenerator
         }
        
         //CONSTRUCTORS
-        public GetRoom()
+        public GetRoom(string room)
         {
-            Room = _room;
+            Room = room;
         }
 
         //METHODS
         public override string ToString()
         {
-            
-
-            return String.Format(Room);
+            return base.ToString();
         }
     }
 }
