@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DungeonLibrary\DungeonLibrary.csproj" />
     <ProjectReference Include="..\RoomGenerator\RoomGenerator.csproj" />
   </ItemGroup>
 

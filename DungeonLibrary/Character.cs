@@ -1,10 +1,15 @@
 ﻿namespace DungeonLibrary
 {
-    public class Character
+    //The "Abstract" modifier:
+    //Denotes this datatype class is "incomplete" -- we don't intend
+    //to make a Character object, but will instead use Character as 
+    //a starting point for other, more specific types. More on this later.
+
+    public abstract class Character
     {
         //fields
         private int _life;
-        private string _name;
+        private string? _name;
         private int _hitChance;
         private int _block;
         private int _maxLife;
@@ -38,7 +43,7 @@
             get { return _life; }
             set 
             {
-                if (value <= MaxLife)
+                if (value <= _maxLife)
                 {
                     _life = value;
                 }//end if
@@ -49,27 +54,42 @@
             }//end set
         }
         //Constructors
-        public int ClacBlock()
+        public Character(string name, int hitChance, int block, int maxLife)
+        {
+            Name = name;
+            HitChance = hitChance;
+            Block = block;
+            MaxLife = maxLife;
+            Life = maxLife;
+        }
+        public Character()
+        {
+
+        }
+        
+
+        public override string ToString()
+        {
+            return $"--------{Name}---------\n" +
+                $"Life: {Life} of {MaxLife}\n" +
+                $"Hit Chance: {HitChance}%\n" +
+                $"Block: {Block}";
+
+
+        }
+        public virtual int ClacBlock()
         {
             return Block;
         }
-        public int CalcHitChance()
+        public virtual int CalcHitChance()
         {
             return HitChance;
         }
-        public int CalcDamage()
+        public virtual int CalcDamage()
         {
             return 0;
         }
 
-        public override string ToString()
-        {
-            return string.Format("{0}:\n" +
-                "Current life:{1}\n" +
-                "MaxLife:{2}\n" +
-                "Block:{3}\n" +
-                "Hit Chance:{4}", Name, Life, MaxLife, Block, HitChance);
-        }
 
     }
 }
