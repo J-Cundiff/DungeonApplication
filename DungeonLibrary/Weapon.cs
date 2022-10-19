@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    internal class Weapons
+    public class Weapon
     {
         private int _minDamage;
         private int _maxDamage;
@@ -50,9 +50,9 @@ namespace DungeonLibrary
             }
         }
 
-        public Weapons() { }
+        public Weapon() { }
 
-        public Weapons(int minDamage, int maxDamage, string name, int bonusHitChance, bool isTwoHanded)
+        public Weapon(int minDamage, int maxDamage, string name, int bonusHitChance, bool isTwoHanded)
         {
             MaxDamage = maxDamage;
             MinDamage = minDamage;

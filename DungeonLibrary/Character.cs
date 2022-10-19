@@ -1,6 +1,11 @@
 ﻿namespace DungeonLibrary
 {
-    public class Character
+    //The "Abstract" modifier:
+    //Denotes this datatype class is "incomplete" -- we don't intend
+    //to make a Character object, but will instead use Character as 
+    //a starting point for other, more specific types. More on this later.
+
+    public abstract class Character
     {
         //fields
         private int _life;

@@ -26,6 +26,8 @@ namespace RoomGenerator
         //METHODS
         public override string ToString()
         {
+            //code
+
             return base.ToString();
         }
     }
