@@ -6,6 +6,7 @@ namespace Dungeon
     {
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             //Title & Introduction
             #region Tittle / Introduction
 
@@ -14,19 +15,33 @@ namespace Dungeon
             Console.WriteLine("Your journey begins...\n");
 
             #endregion
-
+            
+            
 
             //Variable to Track the players score
 
             int score = 0;
 
 
-            //TODO Weapon Object Creation
+            //Weapon Object Creation
             Weapon sword = new Weapon(8, "Long Sword", 10, false, WeaponType.Sword, 1);
-            Console.WriteLine(sword);
-            //TODO Player Object Creation
-            //Character test = new Character("Testy Mctesterson", 30, 10, 1000);
-            //Console.WriteLine(test);
+            Weapon ninjaStars = new Weapon(6, "Ninja Stars", 10, false, WeaponType.Projectile, 1 );
+            Weapon fire = new Weapon(10, "Fire Magic", 12, true, WeaponType.Elemental, 1);
+            
+            //Player Object Creation
+            Player p1 = new Player("Roxy", 10, 5, 100, Race.Alien, sword);
+            Player p2 = new Player("Gemma", 8, 5, 100, Race.Dragonborn, ninjaStars);
+            Player p3 = new Player("Ranaldo", 12, 8, 100, Race.Gnome, fire);
+
+            Player[] player = { p1, p2, p3 };  
+
+            Random rand = new Random();
+            int randChar = rand.Next(player.Length);
+            
+
+            Console.WriteLine(player[randChar]);
+            
+            
 
             //TODO Create the main game loop
 
@@ -86,7 +101,7 @@ namespace Dungeon
                             //TODO Run away - Attack of Opportunity
                            
                             Console.WriteLine("Run Away");
-                           
+                            reload = true;
                             break;
 
 
@@ -106,7 +121,8 @@ namespace Dungeon
                             
 
                         case ConsoleKey.X:
-                        case ConsoleKey.E:   
+                        case ConsoleKey.E:
+                        case ConsoleKey.Escape:
                             //Exit
                            
                             exit = true;
@@ -191,5 +207,6 @@ namespace Dungeon
 
 
         }//end GetRoom()
+
     }//end class
 }//end namespace
