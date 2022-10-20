@@ -115,8 +115,6 @@ namespace DungeonLibrary
                 $"Bonus Hit: {BonusHitChance}%\n" + 
                 $"Type: {Type}\t\t{(IsTwoHanded ? "Two-Handed" : "One-Handed")}";
         }//end ToString 
-        
-        
 
     }
 }

@@ -17,7 +17,7 @@
         //Properties
         public string Name
         {
-            get { return _name; }
+            get { return _name; } 
             set { _name = value; }
         }
         public int HitChance
@@ -26,7 +26,7 @@
             set { _hitChance = value; }
         }
 
-        private int Block
+        public int Block
         {
             get { return _block; }
             set{ _block = value; }
@@ -77,7 +77,7 @@
 
 
         }
-        public virtual int ClacBlock()
+        public virtual int CalcBlock()
         {
             return Block;
         }
