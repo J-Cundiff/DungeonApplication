@@ -6,7 +6,7 @@ namespace Dungeon
     {
         static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            //Console.ForegroundColor = ConsoleColor.Green;
             //Title & Introduction
             #region Tittle / Introduction
 
