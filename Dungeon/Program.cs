@@ -54,7 +54,7 @@ namespace Dungeon
             {
 
                 //TODO Generate a random room the player will enter ---- (Use for HW)
-                Console.WriteLine("*******Dungeon Room*********");
+                Console.WriteLine("\n\n*******Dungeon Room*********\n");
                 Console.WriteLine(GetRoom());
 
 
