@@ -19,21 +19,21 @@ namespace DungeonLibrary
 
 
         //CONSTRUCTORS --- collect
-        public Dragon(string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description, bool isScaly) 
-            : base(name, hitChance, block, maxLife, maxDamage, minDamage, description)
+        public Dragon(string name, int maxLife, int hitChance, int block,  int maxDamage, int minDamage, string description, bool isScaly) 
+            : base(name, maxLife, hitChance, block, maxDamage, minDamage, description)
         {
             IsScaly = isScaly;
         }
         public Dragon()
         {
-            MaxLife = 6;
-            MaxDamage = 3;
-            Name = "Baby dragon";
-            Life = 6;
-            HitChance = 25;
+            MaxLife = 30;
+            MaxDamage = 12;
+            Name = "Galzra";
+            Life = 35;
+            HitChance = 45;
             Block = 20;
             MinDamage = 1;
-            Description = "A freshly-hatched baby dragon. It still looks dangerous...";
+            Description = "A huge fire breathing dragon. It still looks angry...";
             IsScaly = false;
         }
 

@@ -20,7 +20,7 @@ namespace DungeonLibrary
 
         //CONSTRUCTORS --- collect
         public Player(string name, int hitChance, int block, int maxLife, Race characterRace, Weapon equippedWeapon)
-           : base(name, hitChance, block, maxLife)
+           : base(name, maxLife, hitChance, block)
         {
             #region Possiable expansion
             //potenial expansion, not required
@@ -36,16 +36,13 @@ namespace DungeonLibrary
 
 
         }
-        public Player()
-        {
-
-        }
+       
 
         //METHODS --- monkeys
         public override int CalcDamage()
         {
-            Random random = new Random();
-            return random.Next(EquippedWeapon.MinDamage, EquippedWeapon.MaxDamage + 1);
+            
+            return new Random().Next(EquippedWeapon.MinDamage, EquippedWeapon.MaxDamage + 1);
             
         }
         public override int CalcHitChance()
@@ -53,10 +50,11 @@ namespace DungeonLibrary
             return HitChance + EquippedWeapon.BonusHitChance;
             //HitChance  + Weapon BonusHitChance
         }
-       
+      
         public override string ToString()
         {
             string descsription = CharacterRace.ToString().Replace('_', ' ');
+            Weapon weapon = Weapon.GetWeapon();
             #region Switch for CharacterRace
             switch (CharacterRace)
             {
@@ -105,7 +103,7 @@ namespace DungeonLibrary
                     return String.Format( $"--------{Name}---------\n" +
                 $"Life: {Life} of {MaxLife}\n" +
                 $"Weapon: {EquippedWeapon}" +
-                $"Hit Chance: {HitChance}%\n" +
+                $"Hit Chance: {CalcHitChance()}%\n" +
                 $"Block: {Block}\n" +
                 $"Race: {CharacterRace}\n" +
                 $"Description: {descsription}"); //+some unquie description based in the player race
@@ -115,7 +113,31 @@ namespace DungeonLibrary
             
 
         }
-
+        public static Race GetRandomRace()
+        {
+            
+            
+            List<Race> races = new List<Race>()
+            {
+                Race.Drow,
+                Race.Gnome,
+                Race.Halfling,
+                Race.Alien,
+                Race.Aasimar,
+                Race.Human,
+                Race.Dragonborn,
+                Race.Dwarf,
+                Race.elf,
+                Race.Orc,
+                Race.Khajit,
+                Race.Tiefling
+                
+            };
+            int randNum = new Random().Next(races.Count);
+            Race randRace = races[randNum];
+            return randRace;
+        }
+        
 
     }
 }

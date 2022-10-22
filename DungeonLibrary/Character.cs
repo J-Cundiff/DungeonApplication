@@ -54,12 +54,12 @@
             }//end set
         }
         //Constructors
-        public Character(string name, int hitChance, int block, int maxLife)
+        public Character(string name, int maxLife, int hitChance, int block)
         {
             Name = name;
+            MaxLife = maxLife;
             HitChance = hitChance;
             Block = block;
-            MaxLife = maxLife;
             Life = maxLife;
         }
         public Character()
@@ -72,7 +72,7 @@
         {
             return $"--------{Name}---------\n" +
                 $"Life: {Life} of {MaxLife}\n" +
-                $"Hit Chance: {HitChance}%\n" +
+                $"Hit Chance: {CalcHitChance()}%\n" +
                 $"Block: {Block}";
 
 

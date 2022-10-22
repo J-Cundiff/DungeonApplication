@@ -18,22 +18,22 @@ namespace DungeonLibrary
         //Default ctor to set some basic values for a generic monster of this type
         public Rabbit()
         {
-            MaxLife = 6;
-            MaxDamage = 3;
             Name = "Baby Rabbit";
-            Life = MaxLife;
+            MaxLife = 6;
             HitChance = 20;
             Block = 20;
+            MaxDamage = 3;
+            Life = MaxLife;
             MinDamage = 1;
-            Description = "It's just a cte little bunny.... Why would you hurt it?";
+            Description = "It's just a cute little bunny.... Why would you hurt it?";
             IsFluffy = false;
         }
         //Parent compliment (Monster) ctor
         //Intellisense quick action on the Parent name in the class declaration.
-        public Rabbit(string name, int hitChance, int block, //Character
-            int maxLife, int maxDamage, int minDamage, string description,//Monster
+        public Rabbit(string name, int maxLife, int hitChance, int block, //Character
+             int maxDamage, int minDamage, string description,//Monster
             bool isFluffy) //Rabbit
-            : base(name, hitChance, block, maxLife, maxDamage, minDamage, description)
+            : base(name, maxLife, hitChance, block, maxDamage, minDamage, description)
         {
             IsFluffy = isFluffy;
         }
