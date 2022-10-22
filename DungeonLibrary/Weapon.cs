@@ -113,8 +113,31 @@ namespace DungeonLibrary
         {
             return $"{Name}\t{MinDamage} to {MaxDamage} Damage\n" +
                 $"Bonus Hit: {BonusHitChance}%\n" + 
-                $"Type: {Type}\t\t{(IsTwoHanded ? "Two-Handed" : "One-Handed")}";
+                $"Type: {Type}\t\t{(IsTwoHanded ? " Two-Handed " : " One-Handed ")}";
         }//end ToString 
+        public  static Weapon GetWeapon()
+        {
+            Weapon sword = new Weapon(8, "Long Sword", 10, false, WeaponType.Sword, 1);
+            Weapon ninjaStars = new Weapon(6, "Ninja Stars", 10, false, WeaponType.Projectile, 1);
+            Weapon fire = new Weapon(10, "Fire Magic", 12, true, WeaponType.Elemental, 1);
+            Weapon water = new Weapon(7, "Water Magic", 10, false, WeaponType.Elemental, 1);
+            Weapon daggers = new Weapon(5, "Daggers of the dead", 9, true, WeaponType.Knife, 1);
+            Weapon necromany = new Weapon(12, "Necromancy", 15, true, WeaponType.Magical, 1);
 
+            List<Weapon> weapons = new List<Weapon>()
+            {
+                sword,sword,sword,
+                ninjaStars,ninjaStars,
+                fire,
+                water, water,
+                daggers,daggers,daggers,
+                necromany
+            };
+            int randIndex = new Random().Next(weapons.Count);
+            Weapon weapon = weapons[randIndex];
+            return weapon;
+
+
+        }
     }
 }

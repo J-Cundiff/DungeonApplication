@@ -11,11 +11,11 @@ namespace DungeonLibrary
 
         public DateTime HourChangeBack { get; set; }
 
-        public Vampire(string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description) 
-            : base(name, hitChance, block, maxLife, maxDamage, minDamage, description)
+        public Vampire(string name, int maxLife, int hitChance, int block,  int maxDamage, int minDamage, string description) 
+            : base(name, maxLife, hitChance, block,  maxDamage, minDamage, description)
         {
             HourChangeBack = DateTime.Now;
-            if (HourChangeBack.Hour <6 || HourChangeBack.Hour > 10)
+            if (HourChangeBack.Hour <4 || HourChangeBack.Hour > 18)
             {
                 HitChance += 10;
                 Block += 10;
@@ -26,7 +26,7 @@ namespace DungeonLibrary
         public override string ToString()
         {
             return base.ToString() + 
-                (HourChangeBack.Hour < 6 || HourChangeBack.Hour >18 ? "Empowered by the night" : "Weakened by the daylight");
+                (HourChangeBack.Hour < 4 || HourChangeBack.Hour >18 ? " Empowered by the night " : " Weakened by the daylight ");
         }
 
     }

@@ -6,45 +6,161 @@ namespace Dungeon
     {
         static void Main(string[] args)
         {
-            //Console.ForegroundColor = ConsoleColor.Green;
+
             //Title & Introduction
             #region Tittle / Introduction
 
-            Console.Title = "DUNGEON OF DOOM";
-
-            Console.WriteLine("Your journey begins...\n");
-
+            Console.Title = "**************DUNGEON OF NIGHTMARES**************";
+            string art = @"                            
+                           |.'',                                     ,''.|
+                           |.'.'',                                 ,''.'.|
+                           |.'.'.'',                             ,''.'.'.|
+                           |.'.'.'.'',                         ,''.'.'.'.|
+                           |.'.'.'.'.|                         |.'.'.'.'.|
+                           |.'.'.'.'.|===;                 ;===|.'.'.'.'.|
+                           |.'.'.'.'.|:::|',             ,'|:::|.'.'.'.'.|
+                           |.'.'.'.'.|---|'.|, _______ ,|.'|---|.'.'.'.'.|
+                           |.'.'.'.'.|:::|'.|'|???????|'|.'|:::|.'.'.'.'.|
+                           |,',',',',|---|',|'|???????|'|,'|---|,',',',',|
+                           |.'.'.'.'.|:::|'.|'|???????|'|.'|:::|.'.'.'.'.|
+                           |.'.'.'.'.|---|','   /%%%\   ','|---|.'.'.'.'.|
+                           |.'.'.'.'.|===:'    /%%%%%\    ':===|.'.'.'.'.|
+                           |.'.'.'.'.|%%%%%%%%%%%%%%%%%%%%%%%%%|.'.'.'.'.|
+                           |.'.'.'.','       /%%%%%%%%%\       ','.'.'.'.|
+                           |.'.'.','        /%%%%%%%%%%%\        ','.'.'.|
+                           |.'.','         /%%%%%%%%%%%%%\         ','.'.|
+                           |.','          /%%%%%%%%%%%%%%%\          ','.|
+                           |;____________/%%%%%%%%%%%%%%%%%\____________;|";
             #endregion
-            
-            
+
+
 
             //Variable to Track the players score
-
             int score = 0;
 
-
             //Weapon Object Creation
-            Weapon sword = new Weapon(8, "Long Sword", 10, false, WeaponType.Sword, 1);
-            Weapon ninjaStars = new Weapon(6, "Ninja Stars", 10, false, WeaponType.Projectile, 1 );
-            Weapon fire = new Weapon(10, "Fire Magic", 12, true, WeaponType.Elemental, 1);
-            
+            //Weapon.GetWeapon(); //Made a Method to return a random weapon for the player.
+
+
             //Player Object Creation
-            Player p1 = new Player("Roxy", 10, 5, 100, Race.Alien, sword);
-            Player p2 = new Player("Gemma", 8, 5, 100, Race.Dragonborn, ninjaStars);
-            Player p3 = new Player("Ranaldo", 12, 8, 100, Race.Gnome, fire);
+            #region Player Creation
 
-            Player[] player = { p1, p2, p3 };  
+            //Expansion: 
+            //Allow player to define chatacter name
+            Console.Write("Dungeon Explorer, what is your name? ");
+            string userName = Console.ReadLine().ToUpper();
+            Console.Clear();
 
-            Random rand = new Random();
-            int randChar = rand.Next(player.Length);
+            
+            #region race choice attempt
+            /*
+            bool choice = false;
+            do
+            {
+
+
+                Console.Write("Choose your Race: 1)Human\n2)Orc\n3)Elf\n4)Dwarf\n5)Khajit\n6)Gnome\n7)Dragonborn\n8)Tiefling\n9)Alien\nA)Halfling\nB)Aasimar\nC)Drow\nR)Random");
+                ConsoleKey userChoice = Console.ReadKey(true).Key;
+
+                #region switch for race choice
+                switch (userChoice)
+                {
+                    case ConsoleKey.D1:
+                        userChoice = Race.Human;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.D2:
+                        userChoice = (ConsoleKey)Race.Orc;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.D3:
+                        userChoice = (ConsoleKey)Race.elf;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.D4:
+                        userChoice = (ConsoleKey)Race.Dwarf;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.D5:
+                        userChoice = (ConsoleKey)Race.Khajit;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.D6:
+                        userChoice = (ConsoleKey)Race.Gnome;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.D7:
+                        userChoice = (ConsoleKey)Race.Dragonborn;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.D8:
+                        userChoice = (ConsoleKey)Race.Tiefling;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.D9:
+                        userChoice = (ConsoleKey)Race.Alien;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.A:
+                        userChoice = (ConsoleKey)Race.Halfling;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.B:
+                        userChoice = (ConsoleKey)Race.Aasimar;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.C:
+                        userChoice = (ConsoleKey)Race.Drow;
+                        choice = false;
+                        break;
+
+                    case ConsoleKey.R:
+                        userChoice = (ConsoleKey)Player.GetRandomRace();
+                        choice = false;
+
+                        break;
+
+
+                    default:
+                        break;
+                }
+                #endregion
+            } while (!choice); 
+            */
+            #endregion
             
 
-            Console.WriteLine(player[randChar]);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine(art);
+            Console.ResetColor();
+            Console.WriteLine($"Welcome, {userName}!\n" +
+                $" Your journey begins...\n" +
+                $"You enter a dark, mysterious dugneon with noone in sight....\n" +
+                $"or so you think.... ");
+            Console.ReadKey();
+            Console.Clear();
+
+
+            Weapon weapon = Weapon.GetWeapon();
+            Race playerRace = Player.GetRandomRace();
+            Player player = new Player(userName, 70, 5, 40, playerRace, weapon);
+            #endregion
+
             
             
 
-            //TODO Create the main game loop
-
+            
             #region Main Game Loop
 
             //Counter variabale - used in the condition of the loop
@@ -53,13 +169,15 @@ namespace Dungeon
             do
             {
 
-                //TODO Generate a random room the player will enter ---- (Use for HW)
-                Console.WriteLine("\n\n*******Dungeon Room*********\n");
+                //Generate a random room the player will enter
+                //Console.WriteLine("\n*******Dungeon Room*********\n");
                 Console.WriteLine(GetRoom());
 
 
 
-                //TODO Select a random monster to inhabit the room
+                //Select a random monster to inhabit the room
+                Monster monster =  Monster.GetMonster();
+                Console.WriteLine("\nIn this room..." + monster.Name );
 
                 //Create the gameplay menu loop.
 
@@ -70,7 +188,7 @@ namespace Dungeon
                 do
                 {
 
-                    //TODO Create the main gameplay menu
+                    //Create the main gameplay menu
                     #region MENU
 
                     //Promt the user
@@ -87,35 +205,67 @@ namespace Dungeon
                     //Clear the console
                     Console.Clear();
 
-                    //USe branching logic to act upon the user's selection
+                    //Use branching logic to act upon the user's selection
                     switch (userChoice)
                     {
                        case ConsoleKey.A:
 
-                            //TODO Combat
-                            Console.WriteLine("Atatck");
+                            //Combat
+                            #region Possible Expansion - Racial/Weapon Bonus
+
+                            //Possible Expansion: Give certain character races or characters with a certain weapon an advantage
+                            //if (player.CharacterRace == Race.DarkElf)
+                            //{
+                            //    Combat.DoAttack(player, monster);
+                            //}
+                            #endregion
+
+
+                            Combat.DoBattle(player, monster);
+                            //Check if the monster is dead
+                            if (monster.Life <= 0)
+                            {
+                                //loot, gold, experience, etc..
+                                //use green to indicate winning
+                                Console.ForegroundColor = ConsoleColor.Green;
+
+                                //output result
+                                Console.WriteLine($"\nYou killed {monster.Name}!");
+                                Console.ResetColor();
+
+                                //Leave the inner loop
+                                reload = true;
+
+                                score++;
+                            }
                           
                             break;
 
                         case ConsoleKey.R:
-                            //TODO Run away - Attack of Opportunity
+                            //Run away - Attack of Opportunity
                            
-                            Console.WriteLine("Run Away");
+                            Console.WriteLine("Run Away!!!!!");
+
+                            //monster gets an attack of opportunity
+                            Console.WriteLine(monster.Name + " attacks you as you flee!");
+                            Combat.DoAttack(monster, player);
+                            
+
                             reload = true;
                             break;
 
 
                         case ConsoleKey.P:
-                            //TODO Player Stats
+                            //Player Stats
                           
-                            Console.WriteLine("Player Info");
+                            Console.WriteLine(player);
                            
                             break;
 
                          case ConsoleKey.M:
                             
                             //Monster Stats
-                            Console.WriteLine("Monster Info");
+                            Console.WriteLine(monster);
                            
                             break;
                             
@@ -135,13 +285,19 @@ namespace Dungeon
 
                         default:
 
-                            Console.WriteLine("Thou has chosen an improper option. Triest throu again.");
+                            Console.WriteLine("Thou has chosen an improper option. Triest again.");
 
                             break;
                     }//end switch
                     #region Check Player's Life Total 
-                    
-                    //TODO Check player's life
+
+                    //Check player's life
+                    if (player.Life <= 0)
+                    {
+                        Console.WriteLine("Dude...you died!");
+                        exit = true;
+                        continue;
+                    }
 
                     #endregion
 
@@ -180,30 +336,35 @@ namespace Dungeon
         }//end main()
         private static string GetRoom()
         {
-            //code
+            
             #region Room Decriptions
             string[] rooms =
             {
-             "Cavemen lurk behind row of giant mushrooms that split the room in two areas. Enemies shake fungi to release hallucinogenic spores",
+                "You enter a room with thick cobwebs fill the corners of the room, and wisps of webbing hang from the ceiling and waver in a wind youcan barely feel. One corner of the ceiling has a particularly large clot of webbing within which a goblin's bones aretangled.",
 
-             "Contrast between total darkness all around and cone of light projected at smiling mask on pedestal. Giant spiders drop from ceiling.",
+                 "You enter a room with contrast between total darkness all around and cone of light projected at smiling mask on pedestal. The walls start to move in towards each other....\n" +
+                "better hurry...",
 
-             "Demon sultan on diamond throne carried by manticores. Everybody who doesn’t bow is decapitated. Secret elevator to observatory in column #649.",
+                "You enter a room with a demon sultan on a diamond throne carried by manticores. Everybody who doesn’t bow is decapitated. Secret elevator to observatory in random column.",
 
-            "A large, ragged room. It's covered in small bones, large bones and roots.\r\nYour torch allows you to see a broken tomb, decayed and absorbed by time itself.",
+                "You enter a room with a large, ragged room. It's covered in small bones, large bones and roots.\r\nYour torch allows you to see a broken tomb, decayed and absorbed by time itself.",
 
-            "A modest, humid room. It's covered in puddles of water, puddles of water and large bones.\r\nYour torch allows you to see drawings and symbols on the walls, pillaged and spoiled by time itself."
+                 "You enter a room with when a flurry of bats suddenly flaps through the doorway, their screeching barely audible as they careen past yourheads. They flap past you into the rooms and halls beyond. The room from which they came seems barren at firstglance.",
+
+                "You enter a room with three low, oblong piles of rubble lie near the center of this small room. Each has a weapon jutting upright from one end -- a longsword, a spear, and a quarterstaff. The piles resemble cairns used to bury dead adventurers.",
+
+                "You enter a room with a 30-foot-tall demonic idol dominates this room of black stone. The potbellied statue is made of red stone, and its grinning face holds what looks to be two large rubies in place of eyes. A fire burns merrily in a wide brazier the idolholds in its lap.",
+
+                "You enter a room....as the door opens, it scrapes up frost from a floor covered in ice. The room before you looks like an ice cave. A tunnel wends its way through solid ice, and huge icicles and pillars of frozen water block your vision of its farthestreaches.",
+
+                "As you enter this room a glow escapes the room through its open doorways. The masonry between every stone emanates an unnatural orange radiance. Glancing quickly about the room, you note that each stone bears the carving of someone's name.",
+
+                "When looking into this chamber, you're confronted by a thousand reflections of yourself looking back. Mirrored walls set at different angles fill the room. A path seems to wind through the mirrors, although you can't tell where itleads.",
+
+                "You enter a small room and your steps echo. Looking about, you're uncertain why, but then a wall vanishes andreveals an enormous chamber. The wall was an illusion and whoever cast it must be nearby!"
+            };
+                 return rooms[new Random().Next(rooms.Length)];
             #endregion
-        };
-
-            /*
-            Random roomDescrip = new Random();
-            int rand = roomDescrip.Next(rooms.Length);
-            string randRoom = rooms[rand];
-            return randRoom;
-            //**same as below***/
-            
-            return rooms[new Random().Next(rooms.Length)];
 
 
         }//end GetRoom()
