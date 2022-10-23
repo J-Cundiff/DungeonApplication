@@ -10,7 +10,7 @@ namespace Dungeon
             //Title & Introduction
             #region Tittle / Introduction
 
-            Console.Title = "**************DUNGEON OF NIGHTMARES**************";
+            Console.Title = "**************DUNGEON*****************";
             string art = @"                            
                            |.'',                                     ,''.|
                            |.'.'',                                 ,''.'.|
@@ -154,7 +154,7 @@ namespace Dungeon
 
             Weapon weapon = Weapon.GetWeapon();
             Race playerRace = Player.GetRandomRace();
-            Player player = new Player(userName, 70, 5, 40, playerRace, weapon);
+            Player player = new Player(userName, 70, 13, 45, playerRace, weapon);
             #endregion
 
             
@@ -177,7 +177,7 @@ namespace Dungeon
 
                 //Select a random monster to inhabit the room
                 Monster monster =  Monster.GetMonster();
-                Console.WriteLine("\nIn this room..." + monster.Name );
+                Console.WriteLine("\nIn this room..." + monster.Name + "!!!" );
 
                 //Create the gameplay menu loop.
 

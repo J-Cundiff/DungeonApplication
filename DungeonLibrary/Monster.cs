@@ -73,14 +73,14 @@ namespace DungeonLibrary
 
             Turtle turtle = new Turtle("Mikey", 25, 50, 10, 4, 1, "He is no longer a teenager but he is still a mutant turtle", 3, 10);
 
-            Dragon dragon = new Dragon("Smaug", 35, 65, 20, 15, 1, "The last great dragon", isScaly: true);
+            Dragon dragon = new Dragon("Smaug", 35, 65, 20, 10, 1, "The last great dragon", isScaly: true);
             Dragon galzra = new Dragon();
 
             Undead zombie = new Undead();
-            Undead skeleton = new Undead("Skeleton", 30, 60, 15, 15, 1, "A Skeleton holding a sword and shield");
+            Undead skeleton = new Undead("Skeleton", 30, 60, 15, 12, 1, "A Skeleton holding a sword and shield");
 
-            Creature spider = new Creature("Giant Black Widow", 40, 50, 12, 15, 1, "A 10-foot tall spider that shots poisionious webs");
-            Creature leprechaun = new Creature("McGetcha", 35, 45, 10, 12, 1, "A Leprechuan that will stop at nothing to find his pot of gold..");
+            Creature spider = new Creature("Giant Black Widow", 40, 50, 12, 10, 1, "A 10-foot tall spider that shots poisionious webs");
+            Creature leprechaun = new Creature("McGetcha", 35, 45, 10, 8, 1, "A Leprechuan that will stop at nothing to find his pot of gold..");
 
             List<Monster> monsters = new List<Monster>()
             {
