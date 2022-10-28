@@ -51,7 +51,7 @@ namespace Dungeon
             string userName = Console.ReadLine().ToUpper();
             Console.Clear();
 
-            
+            //TODO setup character race selection
             #region race choice attempt
             /*
             bool choice = false;
