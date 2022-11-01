@@ -14,10 +14,10 @@ namespace DungeonLibrary
         {
             Name = "Zombie";
             MaxLife = 20;
-            HitChance = 11;
+            HitChance = 25;
             Block = 10;
             Life = MaxLife;
-            MaxDamage = 15;
+            MaxDamage = 12;
             MinDamage = 1;
             Description = "A reawakened corpse with a ravenous appetite for brains....";
 

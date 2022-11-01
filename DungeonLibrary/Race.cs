@@ -15,18 +15,10 @@ namespace DungeonLibrary
 
         Human,
         Orc,
-        elf,
+        Elf,
         Dwarf,
-        Khajit,
-        Dragonborn,
-        Tiefling,
         Gnome,
-        Halfling,
-        Alien,
-        Aasimar,
-        Drow,
-
-
-
+        Alien
+        
     }
 }

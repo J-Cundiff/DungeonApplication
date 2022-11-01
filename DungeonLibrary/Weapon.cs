@@ -7,30 +7,11 @@ using System.Threading.Tasks;
 namespace DungeonLibrary
 {
     public class Weapon
-        //type - WeaponType
-    {
-        //minDamage – int
-
-        //maxDamage – int
-
-        //name – string
-
-        //bonusHitChance – int
-
-        //isTwoHanded - bool
-
-
-
-        //Full Qualified CTOR
-
-        //Nicely Formatted ToString()
-
-
-
         
-
+    {
+        
        
-        //FIELDS --- funny
+        //FIELDS
 
         
         private WeaponType _type;
@@ -40,7 +21,7 @@ namespace DungeonLibrary
         private int _bonusHitChance;
         private bool _isTwoHanded;
 
-        //PROPERTIES --- people
+        //PROPERTIES
         
         public string Name
         {
@@ -69,18 +50,7 @@ namespace DungeonLibrary
             set
             {
                _minDamage = (value > 0 && value <= MaxDamage ? value : 1);
-                //If the value passed is greater than 0 && less than less than ot equal to max damage,
-                //assisgn that value to _minDamage.Otherwise, assign 1 to _minDamage
-                //this.MinDamage++, += 5, could send it over MaxDamage, we don't want that
-                /*
-                if (value > 0 && value <= MaxDamage)
-                {
-                   _minDamage = value;
-                }
-                else
-                {
-                    _minDamage = 1;
-                }*/
+              
 
             }
         }
@@ -90,15 +60,12 @@ namespace DungeonLibrary
             set { _maxDamage = value; }
         }
 
-        //CONSTRUCTORS --- collect
+        //CONSTRUCTORS 
         public Weapon() { }
 
         public Weapon(int maxDamage, string name, int bonusHitChance, bool isTwoHanded, WeaponType type, int minDamage)
         {
-            //Property = parameter
-            //PascalCase = camelCase
-            //Any other properties with business rules that rely on other properties MUST come AFTER
-            //those properties are set.
+           
             MaxDamage = maxDamage;
             Name = name;
             BonusHitChance = bonusHitChance;
@@ -108,13 +75,13 @@ namespace DungeonLibrary
            
         }
 
-        //METHODS --- monkeys
+        
         public override string ToString()
         {
             return $"{Name}\t{MinDamage} to {MaxDamage} Damage\n" +
                 $"Bonus Hit: {BonusHitChance}%\n" + 
                 $"Type: {Type}\t\t{(IsTwoHanded ? " Two-Handed " : " One-Handed ")}";
-        }//end ToString 
+        }
         public  static Weapon GetWeapon()
         {
             Weapon sword = new Weapon(8, "Long Sword", 10, false, WeaponType.Sword, 1);

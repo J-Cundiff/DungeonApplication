@@ -1,5 +1,7 @@
 ﻿using DungeonLibrary;
 using RoomGenerator;
+using System.ComponentModel;
+
 namespace Dungeon
 {
     internal class Program
@@ -38,108 +40,115 @@ namespace Dungeon
             //Variable to Track the players score
             int score = 0;
 
-            //Weapon Object Creation
-            //Weapon.GetWeapon(); //Made a Method to return a random weapon for the player.
-
-
             //Player Object Creation
             #region Player Creation
 
-            //Expansion: 
-            //Allow player to define chatacter name
+            
+            //User Name Input
             Console.Write("Dungeon Explorer, what is your name? ");
             string userName = Console.ReadLine().ToUpper();
             Console.Clear();
 
-            //TODO setup character race selection
-            #region race choice attempt
-            /*
-            bool choice = false;
+            //User Race Selection
+            #region Race Selection
+            bool raceChosen = false;
+            Race userRace = new Race();
             do
             {
+                Console.WriteLine("****Chose Your Race*****");
+                Console.WriteLine("[H]Human\n[G]Gnome\n[A]Alien\n[D]Dwarf\n[E]Elf\n[O]Orc\n[R]Random");
+                ConsoleKey raceChoice = Console.ReadKey(true).Key;
+                Console.Clear();
 
-
-                Console.Write("Choose your Race: 1)Human\n2)Orc\n3)Elf\n4)Dwarf\n5)Khajit\n6)Gnome\n7)Dragonborn\n8)Tiefling\n9)Alien\nA)Halfling\nB)Aasimar\nC)Drow\nR)Random");
-                ConsoleKey userChoice = Console.ReadKey(true).Key;
-
-                #region switch for race choice
-                switch (userChoice)
+                switch (raceChoice)
                 {
-                    case ConsoleKey.D1:
-                        userChoice = Race.Human;
-                        choice = false;
+                    case ConsoleKey.H:
+                        userRace = Race.Human;
+                        raceChosen = true;
                         break;
-
-                    case ConsoleKey.D2:
-                        userChoice = (ConsoleKey)Race.Orc;
-                        choice = false;
+                    case ConsoleKey.G:
+                        userRace = Race.Gnome;
+                        raceChosen = true;
                         break;
-
-                    case ConsoleKey.D3:
-                        userChoice = (ConsoleKey)Race.elf;
-                        choice = false;
-                        break;
-
-                    case ConsoleKey.D4:
-                        userChoice = (ConsoleKey)Race.Dwarf;
-                        choice = false;
-                        break;
-
-                    case ConsoleKey.D5:
-                        userChoice = (ConsoleKey)Race.Khajit;
-                        choice = false;
-                        break;
-
-                    case ConsoleKey.D6:
-                        userChoice = (ConsoleKey)Race.Gnome;
-                        choice = false;
-                        break;
-
-                    case ConsoleKey.D7:
-                        userChoice = (ConsoleKey)Race.Dragonborn;
-                        choice = false;
-                        break;
-
-                    case ConsoleKey.D8:
-                        userChoice = (ConsoleKey)Race.Tiefling;
-                        choice = false;
-                        break;
-
-                    case ConsoleKey.D9:
-                        userChoice = (ConsoleKey)Race.Alien;
-                        choice = false;
-                        break;
-
                     case ConsoleKey.A:
-                        userChoice = (ConsoleKey)Race.Halfling;
-                        choice = false;
+                        userRace = Race.Alien;
+                        raceChosen = true;
                         break;
-
-                    case ConsoleKey.B:
-                        userChoice = (ConsoleKey)Race.Aasimar;
-                        choice = false;
+                    case ConsoleKey.D:
+                        userRace = Race.Dwarf;
+                        raceChosen = true;
                         break;
-
-                    case ConsoleKey.C:
-                        userChoice = (ConsoleKey)Race.Drow;
-                        choice = false;
+                    case ConsoleKey.E:
+                        userRace = Race.Elf;
+                        raceChosen = true;
                         break;
-
+                    case ConsoleKey.O:
+                        userRace = Race.Orc;
+                        raceChosen = true;
+                        break;
                     case ConsoleKey.R:
-                        userChoice = (ConsoleKey)Player.GetRandomRace();
-                        choice = false;
-
-                        break;
-
-
+                        userRace = Player.GetRandomRace();
+                        raceChosen = true;
+                            break;
                     default:
+                        Console.WriteLine("Invalid Selection....");
                         break;
                 }
-                #endregion
-            } while (!choice); 
-            */
+
+            } while (!raceChosen);
+
+
+
             #endregion
-            
+
+
+            //User Weapon Selection
+            #region MyRegion Weapon Selection
+            bool weaponChosen = false;
+            Weapon userWeapon = new Weapon();
+            do
+            {
+                Console.WriteLine("****Chose your Weapon****\n");
+                Console.WriteLine("[S]Sword\n[N]Necromancy\n[F]Fire\n[W]Water\n[D]Daggers\n[R]Random");
+                ConsoleKey weaponChoice = Console.ReadKey(true).Key;
+                Console.Clear();
+
+                switch (weaponChoice)
+                {
+
+
+                    case ConsoleKey.S:
+                        userWeapon = new Weapon(8, "Long Sword", 10, false, WeaponType.Sword, 1);
+                        weaponChosen = true;
+                        break;
+                    case ConsoleKey.N:
+                        userWeapon = new Weapon(12, "Necromancy", 15, true, WeaponType.Magical, 1);
+                        weaponChosen = true;
+                        break;
+                    case ConsoleKey.F:
+                        userWeapon = new Weapon(10, "Fire Magic", 12, true, WeaponType.Elemental, 1);
+                        weaponChosen = true;
+                        break;
+                    case ConsoleKey.W:
+                        userWeapon = new Weapon(7, "Water Magic", 10, false, WeaponType.Elemental, 1);
+                        weaponChosen = true;
+                        break;
+                    case ConsoleKey.D:
+                        userWeapon = new Weapon(5, "Daggers of the dead", 9, true, WeaponType.Knife, 1);
+                        weaponChosen = true;
+                        break;
+                    case ConsoleKey.R:
+                        userWeapon = Weapon.GetWeapon();
+                        weaponChosen = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid Selection...");
+                        break;
+                } 
+
+            } while (!weaponChosen);
+                #endregion
 
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine(art);
@@ -151,35 +160,28 @@ namespace Dungeon
             Console.ReadKey();
             Console.Clear();
 
-
-            Weapon weapon = Weapon.GetWeapon();
-            Race playerRace = Player.GetRandomRace();
-            Player player = new Player(userName, 70, 13, 45, playerRace, weapon);
+            
+            Player player = new Player(userName, 70, 13, 45, userRace, userWeapon);
             #endregion
 
-            
-            
-
-            
             #region Main Game Loop
 
-            //Counter variabale - used in the condition of the loop
+            
             bool exit = false;
-
             do
             {
 
                 //Generate a random room the player will enter
-                //Console.WriteLine("\n*******Dungeon Room*********\n");
+                Console.WriteLine("\n*********Room Description*********\n");
                 Console.WriteLine(GetRoom());
 
 
 
-                //Select a random monster to inhabit the room
+                //Random monster to inhabit the room
                 Monster monster =  Monster.GetMonster();
                 Console.WriteLine("\nIn this room..." + monster.Name + "!!!" );
 
-                //Create the gameplay menu loop.
+                
 
                 #region Gameplay Menu Loop
 
@@ -188,10 +190,10 @@ namespace Dungeon
                 do
                 {
 
-                    //Create the main gameplay menu
+                    
                     #region MENU
 
-                    //Promt the user
+                    //User Menu
                     Console.Write("\nPlease choose an action:\n" +
                         "A) Attack\n" +
                         "R) Run Away\n" +
@@ -200,33 +202,20 @@ namespace Dungeon
                         "X) Exit\n");
 
                     //Capture the user's menu selection
-                    ConsoleKey userChoice = Console.ReadKey(true).Key;//Capture the pressed key, hide the key from the console and execute immediately
-
-                    //Clear the console
+                    ConsoleKey userChoice = Console.ReadKey(true).Key;
                     Console.Clear();
 
-                    //Use branching logic to act upon the user's selection
+                    //User Selection
                     switch (userChoice)
                     {
                        case ConsoleKey.A:
-
                             //Combat
-                            #region Possible Expansion - Racial/Weapon Bonus
-
-                            //Possible Expansion: Give certain character races or characters with a certain weapon an advantage
-                            //if (player.CharacterRace == Race.DarkElf)
-                            //{
-                            //    Combat.DoAttack(player, monster);
-                            //}
-                            #endregion
-
 
                             Combat.DoBattle(player, monster);
                             //Check if the monster is dead
                             if (monster.Life <= 0)
                             {
-                                //loot, gold, experience, etc..
-                                //use green to indicate winning
+                                
                                 Console.ForegroundColor = ConsoleColor.Green;
 
                                 //output result
@@ -257,16 +246,12 @@ namespace Dungeon
 
                         case ConsoleKey.P:
                             //Player Stats
-                          
-                            Console.WriteLine(player);
-                           
-                            break;
+                          Console.WriteLine(player);
+                           break;
 
                          case ConsoleKey.M:
-                            
-                            //Monster Stats
+                             //Monster Stats
                             Console.WriteLine(monster);
-                           
                             break;
                             
 
@@ -274,20 +259,13 @@ namespace Dungeon
                         case ConsoleKey.E:
                         case ConsoleKey.Escape:
                             //Exit
-                           
-                            exit = true;
-                            
+                           exit = true;
                             Console.WriteLine("Nobody likes a quitter...");
-                           
                             break;
 
-
-
-                        default:
-
+                         default:
                             Console.WriteLine("Thou has chosen an improper option. Triest again.");
-
-                            break;
+                             break;
                     }//end switch
                     #region Check Player's Life Total 
 
@@ -317,11 +295,11 @@ namespace Dungeon
 
 
 
-            } while (!exit);//keep looping as long as exit is flase
+            } while (!exit);//end do while
 
             #endregion
 
-                //TODO output the Final Score
+                //Output Final Score
                 Console.WriteLine("You defeated " + score + " monster" + ((score == 1) ? "." : "s."));
 
 
@@ -330,11 +308,10 @@ namespace Dungeon
 
             #region KeyRead
             Console.WriteLine("Press any key to exit the dungeon...");
-            Console.ReadKey(true);//true-  intercept - you wont see what the user types.
-                                  //false (default) -lets you see what user types
+            Console.ReadKey(true);
             #endregion
         }//end main()
-        private static string GetRoom()
+        public static string GetRoom()
         {
             
             #region Room Decriptions
