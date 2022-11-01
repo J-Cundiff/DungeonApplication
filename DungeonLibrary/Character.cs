@@ -1,9 +1,5 @@
 ﻿namespace DungeonLibrary
 {
-    //The "Abstract" modifier:
-    //Denotes this datatype class is "incomplete" -- we don't intend
-    //to make a Character object, but will instead use Character as 
-    //a starting point for other, more specific types. More on this later.
 
     public abstract class Character
     {
@@ -46,11 +42,11 @@
                 if (value <= _maxLife)
                 {
                     _life = value;
-                }//end if
+                }
                 else
                 {
                     _life = MaxLife;
-                }//end else
+                }
             }//end set
         }
         //Constructors

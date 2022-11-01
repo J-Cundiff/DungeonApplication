@@ -23,7 +23,7 @@ namespace DungeonLibrary
                 //Detract that damage from the defenders life
                 defender.Life -= damageDealt;
                 //output the results to the screen
-                //red text heps indcate damage
+                //red text to indcate damage
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{attacker.Name} hit {defender.Name} for {damageDealt} damage!");
                 Console.ResetColor();//Returns color to normal
@@ -36,7 +36,7 @@ namespace DungeonLibrary
        
         }
 
-        //Now we can create a method to handle "battle" - attack from both sides
+        //Attack from both sides
         public static void DoBattle(Player player, Monster monster)
         {
             DoAttack(player, monster);
@@ -45,20 +45,6 @@ namespace DungeonLibrary
             {
                 DoAttack(monster, player);
 
-                #region Potential Expansion - Initiative
-
-                //Consider adding an "Initiative" property to Character
-                //Then check the Initiative to determine who attacks first
-                //if (player.Initiative >= monster.Initiative)
-                //{
-                //    DoAttack(player, monster);
-                //}
-                //else
-                //{
-                //    DoAttack(monster, player);
-                //}
-
-                #endregion
 
             }
 
